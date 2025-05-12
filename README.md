@@ -38,7 +38,7 @@ This is a Node.js/Express backend application that provides API endpoints for us
    Create a `.env` file in the root directory with the following variables:
    ```
    PORT=3002
-   MONGODB_URI=mongodb+srv://root:Cassandra12@cluster0.6uhtjk8.mongodb.net/SBC?retryWrites=true&w=majority&appName=Cluster0
+   MONGODB_URI=your_mongodb_uri_here
    ```
 
 4. **Run the server**:
@@ -52,4 +52,4 @@ This is a Node.js/Express backend application that provides API endpoints for us
 - Use the provided API endpoints to interact with the application.
 
 ## License
-This project is licensed under the MIT License. 
+This project is licensed under the MIT License.
