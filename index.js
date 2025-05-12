@@ -19,7 +19,10 @@ const allowedOrigins = [
     "http://localhost:3002",
     "http://localhost:3008",
     "http://10.230.139.174:5174/",
-    "https://sbc-security-ui.onrender.com/"
+    "https://sbc-security-ui.onrender.com",
+    "https://sbc-security-ui.onrender.com/",
+    "https://www.canal-de-vente.sniperbuisnesscenter.com",
+    "https://www.canal-de-vente.sniperbuisnesscenter.com/"
 ];
 // Middleware
 app.use((0, cors_1.default)({
