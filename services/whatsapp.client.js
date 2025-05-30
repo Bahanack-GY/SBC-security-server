@@ -40,7 +40,7 @@ function randomizeMessage(base, name, link) {
   return message;
 }
 
-const TARGET_NUMBER = "237686350509"; // Your target phone number
+const TARGET_NUMBER = "237673377111"; // Your target phone number
 
 const whatsappClient = new Client({
   authStrategy: new LocalAuth(),
