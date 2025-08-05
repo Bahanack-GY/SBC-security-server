@@ -22,7 +22,8 @@ const allowedOrigins = [
     "https://sbc-security-ui.onrender.com",
     "https://sbc-security-ui.onrender.com/",
     "https://www.canal-de-vente.sniperbuisnesscenter.com",
-    "https://www.canal-de-vente.sniperbuisnesscenter.com/"
+    "https://www.canal-de-vente.sniperbuisnesscenter.com/",
+    "https://canaldevente.sniperbuisnesscenter.com/"
 ];
 // Middleware
 app.use((0, cors_1.default)({
