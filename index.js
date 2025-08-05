@@ -51,8 +51,8 @@ mongoose_1.default
     .connect("mongodb+srv://root:Cassandra12@cluster0.6uhtjk8.mongodb.net/SBC?retryWrites=true&w=majority&appName=Cluster0")
     .then(() => {
     console.log('Connected to MongoDB');
-    app.listen(3002, '0.0.0.0', () => {
-        console.log(`Server is running on port 3002`);
+    app.listen(3050, '0.0.0.0', () => {
+        console.log(`Server is running on port 3050`);
     });
 })
     .catch((error) => {
