@@ -18,11 +18,13 @@ const allowedOrigins = [
     "https://localhost:5174",
     "http://localhost:3002",
     "http://localhost:3008",
+    "http://217.65.144.32",
     "http://10.230.139.174:5174/",
     "https://sbc-security-ui.onrender.com",
     "https://sbc-security-ui.onrender.com/",
     "https://www.canal-de-vente.sniperbuisnesscenter.com",
     "https://www.canal-de-vente.sniperbuisnesscenter.com/",
+    "https://canaldevente.sniperbuisnesscenter.com",
     "https://canaldevente.sniperbuisnesscenter.com/"
 ];
 // Middleware
