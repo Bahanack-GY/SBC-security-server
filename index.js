@@ -12,6 +12,8 @@ const whatsapp_routes_1 = __importDefault(require("./routes/whatsapp.routes"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 dotenv_1.default.config();
+const config_1 = require("./config");
+const internal_routes_1 = __importDefault(require("./routes/internal.routes"));
 const app = (0, express_1.default)();
 const allowedOrigins = [
     "http://localhost:5174",
@@ -29,6 +31,8 @@ const allowedOrigins = [
     "https://securitycanal.sniperbuisnesscenter.com/"
 ];
 // Middleware
+app.disable("x-powered-by");
+app.set("trust proxy", "loopback");
 app.use((0, cors_1.default)({
     origin: (origin, callback) => {
         // Check if the origin is in the allowed list or is undefined (for non-browser requests)
@@ -50,12 +54,13 @@ app.use((0, cookie_parser_1.default)()); // For parsing cookies
 app.use(express_1.default.json());
 app.use("/users", users_routes_1.default);
 app.use("/whatsapp", whatsapp_routes_1.default);
+app.use("/internal", internal_routes_1.default);
 mongoose_1.default
-    .connect("mongodb+srv://root:Cassandra12@cluster0.6uhtjk8.mongodb.net/SBC?retryWrites=true&w=majority&appName=Cluster0")
+    .connect(config_1.mongodbUri)
     .then(() => {
     console.log('Connected to MongoDB');
-    app.listen(3050, '0.0.0.0', () => {
-        console.log(`Server is running on port 3050`);
+    app.listen(config_1.port, config_1.host, () => {
+        console.log(`Server is running on ${config_1.host}:${config_1.port}`);
     });
 })
     .catch((error) => {

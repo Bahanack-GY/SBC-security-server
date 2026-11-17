@@ -1,4 +1,10 @@
 "use strict";
+// Tests and scripts can run without opening the WhatsApp session (a second
+// browser on the same LocalAuth session would log the server's one out).
+if (process.env.WHATSAPP_DISABLED === '1') {
+  module.exports = { sendMessage: async (to) => { console.log(`[whatsapp disabled] message to ${to} not sent`); } };
+  return;
+}
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());

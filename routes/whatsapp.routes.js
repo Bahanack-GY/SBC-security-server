@@ -5,11 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const whatsapp_client_1 = __importDefault(require("../services/whatsapp.client"));
+const auth_1 = require("../middleware/auth");
 const router = (0, express_1.Router)();
 router.get('/', (req, res) => {
     res.send("Hello World");
 });
-router.post('/sendMessage', async (req, res) => {
+// Sends from SBC's WhatsApp number: admins only.
+router.post('/sendMessage', auth_1.requireAdmin, async (req, res) => {
     try {
         await whatsapp_client_1.default.sendMessage(req.body.phoneNumber, req.body.message);
         console.log(`Message sent to ${req.body.phoneNumber}: ${req.body.message}`);
@@ -17,7 +19,7 @@ router.post('/sendMessage', async (req, res) => {
     }
     catch (err) {
         console.log(err);
-        res.status(500).send(err);
+        res.status(500).send('Message not sent');
     }
 });
 exports.default = router;
